@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cross Browser Cypress Tests
 
 on:
   push:
@@ -9,6 +9,10 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
 
     steps:
       - name: Checkout code
@@ -23,4 +27,4 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser ${{ matrix.browser }}

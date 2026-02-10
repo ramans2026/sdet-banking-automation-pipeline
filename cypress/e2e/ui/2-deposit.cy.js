@@ -1,17 +1,15 @@
-describe('Deposit Flow', () => {
-  it('User should deposit money successfully', () => {
-    cy.loginAsCustomer('Harry Potter');
+import AccountPage from '../../pages/AccountPage';
+import { randomAmount } from '../../support/utils';
 
-    // Click the Deposit tab/button
-    cy.contains('button', 'Deposit').click();
+describe('Deposit Test', () => {
+  it('should deposit random amount', () => {
 
-    // Enter amount (clear first to avoid issues)
-    cy.get('input[type="number"]').clear().type('100');
+    const amount = randomAmount();
 
-    // Confirm deposit by clicking the form submit button
-    cy.get('button[type="submit"]').click();
+    cy.loginAsValidUser();   // <-- use here
 
-    // Verify success message using the specific message element
-    cy.get('span.error', { timeout: 10000 }).should('be.visible').and('contain.text', 'Deposit Successful');
+    AccountPage.deposit(amount);
+    AccountPage.verifySuccess();
+
   });
 });

@@ -1,6 +1,7 @@
-Cypress.Commands.add('loginAsCustomer', (name) => {
-  cy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login');
-  cy.contains('Customer Login').click();
-  cy.get('#userSelect').select(name);
-  cy.contains('Login').click();
+Cypress.Commands.add('loginAsValidUser', () => {
+  cy.fixture('users').then((users) => {
+    cy.visit('/');
+    cy.contains(users.validUser.username).click();
+    cy.contains('Login').click();
+  });
 });

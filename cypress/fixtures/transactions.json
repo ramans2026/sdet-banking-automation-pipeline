@@ -1,0 +1,8 @@
+{
+  "deposit": {
+    "amount": 500
+  },
+  "withdraw": {
+    "amount": 10
+  }
+}

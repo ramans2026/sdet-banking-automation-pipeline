@@ -1,30 +1,15 @@
-describe('Withdraw Flow', () => {
-  it('User should withdraw money successfully', () => {
-    cy.loginAsCustomer('Harry Potter');
+import AccountPage from '../../pages/AccountPage';
+import { randomAmount } from '../../support/utils';
 
-    // Deposit money first to ensure sufficient balance
-    cy.contains('button', 'Deposit').click();
-    cy.get('.mainBox').within(() => {
-      cy.get('input[type="number"]').clear().type('100');
-      cy.get('button[type="submit"]').click();
-    });
-    cy.wait(1500);
+describe('Withdraw Test', () => {
+  it('should withdraw random amount', () => {
 
-    // Click the Withdraw button
-    cy.contains('button', 'Withdrawl').click();
-    cy.wait(500);
+    const amount = randomAmount(50, 300);
 
-    // Enter withdrawal amount safely: alias the input and break the chain
-    const amountSelector = '.mainBox input[type="number"]';
-    cy.get(amountSelector).should('exist').and('be.visible').as('withdrawInput');
-    cy.get('@withdrawInput').clear();
-    // ensure the input is still attached, then type
-    cy.get('@withdrawInput').should('have.value', '').type('10');
-    cy.wait(500);
-    cy.get('.mainBox button[type="submit"]').click();
-    cy.wait(1500);
+    cy.loginAsValidUser();   // <-- use here
 
-    // Verify balance decreased (should be 90)
-    cy.get('.center strong').eq(1).invoke('text').should('include', '90');
+    AccountPage.withdraw(amount);
+    AccountPage.verifySuccess();
+
   });
 });
