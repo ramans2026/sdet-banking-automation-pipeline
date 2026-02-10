@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run --reporter mochawesome"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ramans2026/cypress-ci-cd-project.git"
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/ramans2026/cypress-ci-cd-project#readme",
   "devDependencies": {
-    "cypress": "^15.10.0"
+    "cypress": "^15.10.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
+  
 }
