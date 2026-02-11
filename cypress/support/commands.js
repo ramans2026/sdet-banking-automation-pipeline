@@ -1,7 +1,10 @@
+import LoginPage from '../pages/LoginPage';
+
 Cypress.Commands.add('loginAsValidUser', () => {
   cy.fixture('users').then((users) => {
-    cy.visit('/');
-    cy.contains(users.validUser.username).click();
-    cy.contains('Login').click();
+    LoginPage.visit();
+    LoginPage.openCustomerLogin();   // required
+    LoginPage.selectUser(users.validUser.username);
+    LoginPage.clickLogin();
   });
 });

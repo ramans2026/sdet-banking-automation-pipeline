@@ -3,8 +3,13 @@ class LoginPage {
     cy.visit('/');
   }
 
+  openCustomerLogin() {
+    cy.contains('Customer Login', { timeout: 10000 }).click();
+  }
+
   selectUser(username) {
-    cy.contains(username).click();
+    cy.get('#userSelect', { timeout: 10000 }).should('be.visible');
+    cy.get('#userSelect').select(username);
   }
 
   clickLogin() {
