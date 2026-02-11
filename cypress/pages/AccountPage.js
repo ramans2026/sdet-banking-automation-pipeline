@@ -24,24 +24,24 @@ class AccountPage {
   }
 
   withdraw(amount) {
-    this.waitForAccountPage();
+  this.waitForAccountPage();
 
-    cy.contains('Withdrawl', { timeout: 10000 })
-      .should('be.visible')
-      .click();
+  cy.contains('Withdrawl', { timeout: 10000 })
+    .should('be.visible')
+    .click();
 
-    // wait for form to stabilize
-    cy.get('input[ng-model="amount"]', { timeout: 10000 })
-      .should('be.visible')
-      .and('not.be.disabled');
+  // Wait for input to stabilize
+  cy.get('input[ng-model="amount"]', { timeout: 10000 })
+    .should('be.visible')
+    .and('not.be.disabled')
+    .as('amountInput');
 
-    // re-query the element before typing
-    cy.get('input[ng-model="amount"]')
-      .clear()
-      .type(amount);
+  // Use alias to avoid DOM detachment
+  cy.get('@amountInput').clear();
+  cy.get('@amountInput').type(amount);
 
-    cy.get('button[type="submit"]').click();
-  }
+  cy.get('button[type="submit"]').click();
+}
 
   verifySuccess() {
     cy.contains(/successful/i, { timeout: 10000 })
