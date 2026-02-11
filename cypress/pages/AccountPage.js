@@ -11,7 +11,6 @@ class AccountPage {
       .should('be.visible')
       .click();
 
-    // wait for form to stabilize
     cy.get('input[ng-model="amount"]', { timeout: 10000 })
       .should('be.visible')
       .and('not.be.disabled');
@@ -22,26 +21,6 @@ class AccountPage {
 
     cy.get('button[type="submit"]').click();
   }
-
-  withdraw(amount) {
-  this.waitForAccountPage();
-
-  cy.contains('Withdrawl', { timeout: 10000 })
-    .should('be.visible')
-    .click();
-
-  // Wait for input to stabilize
-  cy.get('input[ng-model="amount"]', { timeout: 10000 })
-    .should('be.visible')
-    .and('not.be.disabled')
-    .as('amountInput');
-
-  // Use alias to avoid DOM detachment
-  cy.get('@amountInput').clear();
-  cy.get('@amountInput').type(amount);
-
-  cy.get('button[type="submit"]').click();
-}
 
   verifySuccess() {
     cy.contains(/successful/i, { timeout: 10000 })
