@@ -4,30 +4,30 @@
 It demonstrates UI automation, API testing, cross-browser execution, and CI/CD integration.
 
 **Key Features**
-Page Object Model for maintainability
-Fixture-based test data
-Reusable custom commands
-Randomized test data utilities
-Cross-browser CI execution
-GitHub Actions pipeline
-CI/CD Pipeline
+Page Object Model for maintainability,
+Fixture-based test data,
+Reusable custom commands,
+Randomized test data utilities,
+Cross-browser CI execution,
+GitHub Actions pipeline,
+CI/CD Pipeline,
 Tests run automatically on every push and pull request.
 
 **Tech Stack**
-Cypress
-JavaScript
-GitHub Actions
-Page Object Model (POM)
+Cypress,
+JavaScript,
+GitHub Actions,
+Page Object Model (POM),
 Cross-browser testing (Chrome, Firefox, Edge)
 
 **Test Coverage**
-UI Tests - Customer login and Deposit transaction
+UI Tests - Customer login and Deposit transaction,
 API Tests - Sample user API validation
 
 **How to Run Locally**
 Install dependencies:
 npm install
-Run tests:
+**Run tests:**
 npx cypress run
 Run in specific browser:
 npx cypress run --browser chrome
