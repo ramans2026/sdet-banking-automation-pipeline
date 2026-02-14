@@ -1,35 +1,43 @@
 # AI-Assisted Cypress Automation for Banking App
 
-**Tools Used :**
+**Overview** : This project is a production-style Cypress automation framework built for a sample banking application.
+It demonstrates UI automation, API testing, cross-browser execution, and CI/CD integration.
 
+**Tech Stack**
 Cypress
-
-GitHub Copilot
-
 JavaScript
-
 GitHub Actions
+Page Object Model (POM)
+Cross-browser testing (Chrome, Firefox, Edge)
 
-**Key Highlights :**
+**Test Coverage**
+UI Tests - Customer login and Deposit transaction
+API Tests - Sample user API validation
 
-AI-assisted test creation using Copilot
+**Framework Structure**
+cypress/
+ ├── e2e/
+ │   ├── api/
+ │   └── ui/
+ ├── fixtures/
+ ├── pages/
+ └── support/
+ 
+**Key Features**
+Page Object Model for maintainability
+Fixture-based test data
+Reusable custom commands
+Randomized test data utilities
+Cross-browser CI execution
+GitHub Actions pipeline
+CI/CD Pipeline
+Tests run automatically on every push and pull request.
 
-Page flow automation
-
-Custom commands
-
-CI/CD integration
-
-**Test Scenarios**
-
-Login
-
-Deposit
-
-Withdraw
-
-
-**Demo App Used **
-URL:
-https://www.globalsqa.com/angularJs-protractor/BankingProject/
-# sdet-banking-automation-pipeline
+**How to Run Locally**
+Install dependencies:
+npm install
+Run tests:
+npx cypress run
+Run in specific browser:
+npx cypress run --browser chrome
+**Demo Application** - https://www.globalsqa.com/angularJs-protractor/BankingProject/
