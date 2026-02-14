@@ -1,4 +1,4 @@
-# AI-Assisted Cypress Automation for Banking App
+# Cypress Automation for Banking App
 
 **Overview** : This project is a production-style Cypress automation framework built for a sample banking application.
 It demonstrates UI automation, API testing, cross-browser execution, and CI/CD integration.
