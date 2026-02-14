@@ -3,6 +3,16 @@
 **Overview** : This project is a production-style Cypress automation framework built for a sample banking application.
 It demonstrates UI automation, API testing, cross-browser execution, and CI/CD integration.
 
+**Key Features**
+Page Object Model for maintainability
+Fixture-based test data
+Reusable custom commands
+Randomized test data utilities
+Cross-browser CI execution
+GitHub Actions pipeline
+CI/CD Pipeline
+Tests run automatically on every push and pull request.
+
 **Tech Stack**
 Cypress
 JavaScript
@@ -13,25 +23,6 @@ Cross-browser testing (Chrome, Firefox, Edge)
 **Test Coverage**
 UI Tests - Customer login and Deposit transaction
 API Tests - Sample user API validation
-
-**Framework Structure**
-cypress/
- ├── e2e/
- │   ├── api/
- │   └── ui/
- ├── fixtures/
- ├── pages/
- └── support/
- 
-**Key Features**
-Page Object Model for maintainability
-Fixture-based test data
-Reusable custom commands
-Randomized test data utilities
-Cross-browser CI execution
-GitHub Actions pipeline
-CI/CD Pipeline
-Tests run automatically on every push and pull request.
 
 **How to Run Locally**
 Install dependencies:
